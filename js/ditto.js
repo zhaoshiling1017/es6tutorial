@@ -9,7 +9,7 @@ var ditto = {
 
     // display elements
     sidebar: true,
-    edit_button: true,
+    //edit_button: true,
     back_to_top_button: true,
     save_progress: true, // 保存阅读进度
     search_bar: true,
@@ -31,9 +31,9 @@ function initialize() {
     init_back_to_top_button();
   }
 
-  if (ditto.edit_button) {
+  /*if (ditto.edit_button) {
     init_edit_button();
-  }
+  }*/
 
   // page router
   router();
@@ -89,7 +89,7 @@ function searchbar_listener(event) {
     // event.preventDefault();
     var q = $('input[name=search]').val();
     if (q !== '') {
-      var url = 'https://github.com/ruanyf/es6tutorial/search?utf8=✓&q=' + encodeURIComponent(q);
+      var url = 'https://github.com/zhaoshiling1017/es6tutorial/search?utf8=✓&q=' + encodeURIComponent(q);
       window.open(url, '_blank');
       win.focus();
     }
@@ -125,25 +125,25 @@ function goSection(sectionId){
   }, 300);
 }
 
-function init_edit_button() {
-    if (ditto.base_url === null) {
-        alert("Error! You didn't set 'base_url' when calling ditto.run()!");
-
-    } else {
-        $(ditto.edit_id).show();
-        $(ditto.edit_id).on("click", function() {
-            var hash = location.hash.replace("#", "/");
-
-            if (hash === "") {
-                hash = "/" + ditto.index.replace(".md", "");
-            }
-
-            window.open(ditto.base_url + hash + ".md");
-            // open is better than redirecting, as the previous page history
-            // with redirect is a bit messed up
-        });
-    }
-}
+// function init_edit_button() {
+//     if (ditto.base_url === null) {
+//         alert("Error! You didn't set 'base_url' when calling ditto.run()!");
+//
+//     } else {
+//         $(ditto.edit_id).show();
+//         $(ditto.edit_id).on("click", function() {
+//             var hash = location.hash.replace("#", "/");
+//
+//             if (hash === "") {
+//                 hash = "/" + ditto.index.replace(".md", "");
+//             }
+//
+//             window.open(ditto.base_url + hash + ".md");
+//             // open is better than redirecting, as the previous page history
+//             // with redirect is a bit messed up
+//         });
+//     }
+// }
 
 function replace_symbols(text) {
   // replace symbols with underscore
@@ -260,7 +260,7 @@ function show_loading() {
   return loading;
 }
 
-function router() {	
+function router() {
   var path = location.hash.replace(/#([^#]*)(#.*)?/, './$1');
 
   var hashArr = location.hash.split('#');
@@ -310,10 +310,10 @@ function router() {
     // 加载disqus
     (function() {
       // http://docs.disqus.com/help/2/
-      window.disqus_shortname = 'es6';
+      window.disqus_shortname = 'es6course';
       window.disqus_identifier = (location.hash ? location.hash.replace("#", "") : 'READEME');
       window.disqus_title = $(ditto.content_id + " h1").text();
-      window.disqus_url = 'http://es6.ruanyifeng.com/' + (location.hash ? location.hash.replace("#", "") : 'README');
+      window.disqus_url = 'http://es6.lenzhao.com/' + (location.hash ? location.hash.replace("#", "") : 'README');
 
       // http://docs.disqus.com/developers/universal/
       (function() {
