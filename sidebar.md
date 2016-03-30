@@ -1,4 +1,4 @@
-# [ECMAScript 6 入门]()
+# [ES6 新特性简介]()
 
 作者：[赵世令](http://es6.lenzhao.com)
 
